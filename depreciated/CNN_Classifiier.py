@@ -43,8 +43,9 @@ def CNN_Classifier_funct(test_dir, predict_dir, group):
 	  validation_data=val_ds,
 	  epochs=35
 	)
-	model.summary()
+	
 	with open("CNNoutput %s.txt" % group, "w") as text_file:
+		text_file.write(model.summary())
 	    text_file.write("final MSE for train is %.2f and for validation is %.2f" % 
 	      (history.history['loss'][-1], history.history['val_loss'][-1]))
 	os.mkdir('classifier %s' % group)
