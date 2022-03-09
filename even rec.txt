@@ -1,0 +1,7 @@
+low med high
+model looks good because copy numbers are the same in train, validation and split
+ie all have 100, 300 ect would be better if val or test were 200, 400, 800
+
+regressor was heavy, had to decrease batch size to make it run- bad error shot up.
+
+train with batch of zero-all data typically comp heavy but data is small.
