@@ -1,4 +1,6 @@
-__version__ = 0.1
+__version__ = "0.1"
+#from .version import __version__
+from .autocrop import *
+from .get_data import *
 
-from .auto_crop import crop
-from .get_data import get_data_array
+name = 'qiaml'

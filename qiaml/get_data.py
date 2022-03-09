@@ -4,12 +4,14 @@ Created on Wed Feb 23 21:52:41 2022
 
 @author: Colem
 """
+import os
+
 import numpy as np
 import pandas as pd
-
+from tensorflow.keras.utils import image_dataset_from_directory
 
 """
-Data sets All and AB are two part needing to be concatenated, all other data
+Data sets All, AB, and AC are two part needing to be concatenated, all other data
 sets are one piece 
 """
 
@@ -97,3 +99,64 @@ def get_data_df(Dataset):
         return data
     else:
         print('Error: Datasets limited to A, B, C, AB, AC, BC')
+        
+        
+def get_data_tf_dataset(train, test):
+	"""
+
+	Parameters
+	----------
+	train : str. Which dataset desired: AB,AC,BC
+
+	test : str. corrisponding testdata: A,B,C 
+
+	Returns
+	-------
+	train_ds : tensorflow dataset for training. 
+	pred_ds : tensorflow dataset for testing/predicting.
+	Error: you need to download the data
+
+	"""
+	if os.path.exists('./Datasets/cropped_jpgs') == True:
+		data_dir = './Datasets/cropped_jpgs/{train}'
+		predit_dir = './Datasets/cropped_jpgs/{test}'
+		Dataset_from_directory(data_dir, predict_dir)
+	else:
+		print('Error: Download the files from the shared drive link and store them in ./Datasets/cropped_jpgs')
+
+def Dataset_from_directory(data_dir, predict_dir, split):
+	"""
+	    
+	Parameters
+	----------
+	train : str. Which dataset desired: AB,AC,BC
+
+	test : str. corrisponding testdata: A,B,C 
+	
+	split : float. Fraction of validation split (0.2 =20%)
+
+	Returns
+	-------
+	train_ds : tensorflow dataset for training. 
+	pred_ds : tensorflow dataset for testing/predicting.
+
+	"""
+
+	train_ds = image_dataset_from_directory(
+	data_dir,
+	seed=53,
+	image_size=(900, 900))
+
+	val_ds = image_dataset_from_directory(
+		data_dir,
+	validation_split=split,
+	subset="validation",
+	seed=53,
+	image_size=(900, 900))
+
+	pred_ds= image_dataset_from_directory(
+		predict_dir,
+		seed = 53,
+		image_size=(900, 900))
+
+	return train_ds, val_ds, pred_ds
