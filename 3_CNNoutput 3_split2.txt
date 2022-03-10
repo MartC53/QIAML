@@ -1,0 +1,21 @@
+Model: "sequential"
+_________________________________________________________________
+ Layer (type)                Output Shape              Param #   
+=================================================================
+ conv2d (Conv2D)             (None, 898, 898, 32)      896       
+                                                                 
+ max_pooling2d (MaxPooling2D  (None, 449, 449, 32)     0         
+ )                                                               
+                                                                 
+ flatten (Flatten)           (None, 6451232)           0         
+                                                                 
+ dense (Dense)               (None, 64)                412878912 
+                                                                 
+ dense_1 (Dense)             (None, 3)                 195       
+                                                                 
+=================================================================
+Total params: 412,880,003
+Trainable params: 412,880,003
+Non-trainable params: 0
+_________________________________________________________________
+final MSE for train is 2280.57 and for validation is 1772.85
