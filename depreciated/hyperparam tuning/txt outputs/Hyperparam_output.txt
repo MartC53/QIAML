@@ -1,0 +1,10 @@
+Number of finished trials:  100
+Best trial:
+  Value:  0.5
+  Params: 
+    n_layers: 2
+    weight_decay: 2.744622884590549e-10
+    n_units_l0: 19
+    n_units_l1: 15
+    optimizer: Adam
+    adam_learning_rate: 0.09457033663583507

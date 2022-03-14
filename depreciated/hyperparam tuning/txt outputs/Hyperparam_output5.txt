@@ -1,0 +1,9 @@
+Number of finished trials:  10
+Best trial:
+  Value:  1.0
+  Params: 
+    activation: linear
+    optimizer: RMSprop
+    rmsprop_learning_rate: 0.00019071743301005275
+    rmsprop_decay: 0.8891805192078649
+    rmsprop_momentum: 0.000820724843590835
