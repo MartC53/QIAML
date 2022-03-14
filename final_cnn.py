@@ -4,7 +4,7 @@ import os
 from qiaml.get_data import Dataset_from_directory
 import sys
 
-group = 'final_CNN'
+group = 'final_CNN5'
 data_dir = './Datasets/3_split/'
 predict_dir = './Datasets/cropped_jpgs/3_split_test'
 
@@ -56,5 +56,5 @@ model.summary()
 print("final MSE for train is %.2f and for validation is %.2f" % 
       (history.history['loss'][-1], history.history['val_loss'][-1]))
 sys.stdout.close()
-os.mkdir('classifier %s' % group)
-model.save('classifier %s' % group)
+# os.mkdir('classifier %s' % group)
+model.save('5', save_format='h5')

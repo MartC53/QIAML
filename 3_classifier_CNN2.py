@@ -93,4 +93,4 @@ print("final MSE for train is %.2f and for validation is %.2f" %
       (history.history['loss'][-1], history.history['val_loss'][-1]))
 sys.stdout.close()
 os.mkdir('classifier %s' % group)
-model.save('classifier %s' % group)
+model.save('classifier %s' % group, include_optimizer=False, )

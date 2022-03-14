@@ -1,5 +1,5 @@
 import tensorflow as tf
-from get_data import Dataset_from_directory
+from qiaml.get_data import Dataset_from_directory
 from PIL import Image
 
 group = 'A'
@@ -13,7 +13,7 @@ normalization_layer = tf.keras.layers.Rescaling(1./255) # normalizing pixel inte
 pred_ds = pred_ds.map(lambda x, y: (normalization_layer(x), y)) # normalizing pixel intensity, 8 bit camera
 
 
-model = tf.keras.models.load_model('classifier 3_split_final')
+model = tf.keras.models.load_model('classifier final_CNN4')
 # model.summary()
 # predict = model.predict(pred_ds)
 # print(predict)
