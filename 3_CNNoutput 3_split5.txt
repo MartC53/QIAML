@@ -1,0 +1,33 @@
+Model: "sequential"
+_________________________________________________________________
+ Layer (type)                Output Shape              Param #   
+=================================================================
+ rescaling (Rescaling)       (None, 900, 900, 3)       0         
+                                                                 
+ conv2d (Conv2D)             (None, 898, 898, 32)      896       
+                                                                 
+ max_pooling2d (MaxPooling2D  (None, 449, 449, 32)     0         
+ )                                                               
+                                                                 
+ conv2d_1 (Conv2D)           (None, 447, 447, 64)      18496     
+                                                                 
+ max_pooling2d_1 (MaxPooling  (None, 223, 223, 64)     0         
+ 2D)                                                             
+                                                                 
+ conv2d_2 (Conv2D)           (None, 221, 221, 128)     73856     
+                                                                 
+ max_pooling2d_2 (MaxPooling  (None, 110, 110, 128)    0         
+ 2D)                                                             
+                                                                 
+ flatten (Flatten)           (None, 1548800)           0         
+                                                                 
+ dense (Dense)               (None, 256)               396493056 
+                                                                 
+ dense_1 (Dense)             (None, 3)                 771       
+                                                                 
+=================================================================
+Total params: 396,587,075
+Trainable params: 396,587,075
+Non-trainable params: 0
+_________________________________________________________________
+final MSE for train is 0.64 and for validation is 0.43

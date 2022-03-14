@@ -1,10 +1,10 @@
 import numpy as np
 import tensorflow as tf
 import os
-from get_data import Dataset_from_directory
+from qiaml.get_data import Dataset_from_directory
 import sys
 
-group = '3_split7'
+group = 'final_CNN5'
 data_dir = './Datasets/3_split/'
 predict_dir = './Datasets/cropped_jpgs/3_split_test'
 
@@ -27,45 +27,18 @@ val_ds = val_ds.cache().prefetch(buffer_size=AUTOTUNE) #running on swap cache (R
 num_classes = 3
 
 
-# 6
+# 9
 model = tf.keras.Sequential([
   tf.keras.layers.Rescaling(1./255, input_shape=(900, 900, 3)),
-  tf.keras.layers.Conv2D(16, 3, activation='relu'),
+  tf.keras.layers.Conv2D(8, 3, activation='linear'),
   tf.keras.layers.Flatten(),
-  tf.keras.layers.Dense(32, activation='relu'),
+  tf.keras.layers.Dense(16, activation='linear'),
   tf.keras.layers.Dense(num_classes)
 ])
 
 
-# 5
-# model = tf.keras.Sequential([
-#   tf.keras.layers.Rescaling(1./255, input_shape=(900, 900, 3)),
-#   tf.keras.layers.Conv2D(32, 3, activation='relu'),
-#   tf.keras.layers.MaxPooling2D(),
-#   tf.keras.layers.Conv2D(64, 3, activation='relu'),
-#   tf.keras.layers.MaxPooling2D(),
-#   tf.keras.layers.Conv2D(128, 3, activation='relu'),
-#   tf.keras.layers.MaxPooling2D(),
-#   tf.keras.layers.Flatten(),
-#   tf.keras.layers.Dense(256, activation='relu'),
-#   tf.keras.layers.Dense(num_classes)
-# ])
-
-
-# model = tf.keras.Sequential([
-#   tf.keras.layers.Conv2D(32, 3, activation='relu'),
-#   tf.keras.layers.MaxPooling2D(),
-#   tf.keras.layers.Conv2D(32, 3, activation='relu'),
-#   tf.keras.layers.MaxPooling2D(),
-#   tf.keras.layers.Conv2D(32, 3, activation='relu'),
-#   tf.keras.layers.MaxPooling2D(),
-#   tf.keras.layers.Flatten(),
-#   tf.keras.layers.Dense(128, activation='relu'),
-#   tf.keras.layers.Dense(num_classes)
-# ])
-
 RMSprop = tf.keras.optimizers.RMSprop(
-    learning_rate=0.0046, rho=0.939, momentum=0.05)
+    learning_rate=0.0001907, momentum=0.00082)
 
 model.compile(
   optimizer=RMSprop,
@@ -78,10 +51,10 @@ history = model.fit(
   epochs=100
 )
 
-sys.stdout = open("3_CNNoutput %s.txt" % group, "w")
+sys.stdout = open(" %s.txt" % group, "w")
 model.summary()
 print("final MSE for train is %.2f and for validation is %.2f" % 
       (history.history['loss'][-1], history.history['val_loss'][-1]))
 sys.stdout.close()
-os.mkdir('classifier %s' % group)
-model.save('classifier %s' % group)
+# os.mkdir('classifier %s' % group)
+model.save('5', save_format='h5')
