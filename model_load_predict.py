@@ -1,6 +1,6 @@
 import tensorflow as tf
 from qiaml.get_data import Dataset_from_directory
-from PIL import Image
+
 
 group = 'A'
 data_dir = './Datasets/3_split'
@@ -13,20 +13,7 @@ normalization_layer = tf.keras.layers.Rescaling(1./255) # normalizing pixel inte
 pred_ds = pred_ds.map(lambda x, y: (normalization_layer(x), y)) # normalizing pixel intensity, 8 bit camera
 
 
-model = tf.keras.models.load_model('classifier final_CNN4')
-# model.summary()
-# predict = model.predict(pred_ds)
-# print(predict)
-
-# test_accuracy = tf.keras.metrics.Accuracy()
-# print(test_accuracy)
-# test_loss = estimator.model.evaluate(train_ds)
-# print("test set mse is %.2f" % test_loss)
-# print('load complete')
-# predictions = model.predict(pred_ds)
-
-# matrix = metrics.confusion_matrix(y_test.argmax(axis=1), y_pred.argmax(axis=1))
-# predictions = model(pred_ds, training=False)
+model = tf.keras.models.load_model('classifier 3.14 Classifier')
 
 test_accuracy = tf.keras.metrics.Accuracy()
 ds_test_batch = pred_ds
