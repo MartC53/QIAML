@@ -13,7 +13,7 @@ normalization_layer = tf.keras.layers.Rescaling(1./255) # normalizing pixel inte
 pred_ds = pred_ds.map(lambda x, y: (normalization_layer(x), y)) # normalizing pixel intensity, 8 bit camera
 
 
-model = tf.keras.models.load_model('classifier 3.14 Classifier')
+model = tf.keras.models.load_model('finalcnn')
 
 test_accuracy = tf.keras.metrics.Accuracy()
 ds_test_batch = pred_ds
