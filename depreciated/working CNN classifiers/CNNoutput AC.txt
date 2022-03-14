@@ -1,1 +1,0 @@
-final MSE for train is 2.58 and for validation is 1.94
