@@ -7,8 +7,7 @@ def loadmodel():
     Returns
     -------
     model : to be used for testing unknown images
-        
-    """
+"""
     model = tf.keras.models.load_model('finalcnn')
     #model = tf.keras.Sequential([model, tf.keras.layers.Softmax()])
     return model
