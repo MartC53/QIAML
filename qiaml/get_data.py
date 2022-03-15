@@ -12,12 +12,11 @@ import os
 
 import numpy as np
 import pandas as pd
-<<<<<<< HEAD
+
 from tensorflow.keras.utils import image_dataset_from_directory
-=======
 import os
 
->>>>>>> xuetao
+
 
 """
 Data sets All, AB, and AC are two part needing to be concatenated, all other data
