@@ -1,4 +1,4 @@
-# QIAML
+# QIAML ![Test status](https://github.com/MartC53/QIAML/actions/workflows/python-package-conda.yml/badge.svg)
 The goal of this project is to produce a model that accurately detects quantifies fluorescent nucleation sites of DNA amplification. Previous work in the Posner Research group has shown that these fluorescent nucleation sites correlate with the concentration of initial DNA concentration.
 
 ## Current Functionality:
