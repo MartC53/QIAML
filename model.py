@@ -5,7 +5,7 @@ import numpy as np
 """
 def loadmodel():
     
-    model = tf.keras.models.load_model('classifier 3_split_final')
+    model = tf.keras.models.load_model('finalcnn')
     #model = tf.keras.Sequential([model, tf.keras.layers.Softmax()])
     return model
    
