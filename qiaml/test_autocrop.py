@@ -3,8 +3,8 @@ import numpy as np
 import unittest
 #from qiaml import *
 #import qiaml
-from autocrop import crop
-from get_data import get_data_array
+from qiaml.autocrop import crop
+from qiaml.get_data import get_data_array
 
 
 
