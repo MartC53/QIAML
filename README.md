@@ -54,8 +54,13 @@ Optuna: A Next-generation Hyperparameter Optimization Framework. In KDD.
 ### Inital Input Correlation 
 Describe results here
 
-## Usage
-Code runs with...
+## Application Usage
+There are a few requirements to run the current GUI. These are that the model needs to be downloaded and unzipped into your working directory. The model’s directory title should be “finalcnn”. This file can be shared upon request, due to it’s size 1.1gb we are unable to upload it into our repository. 
+The other requirement is the computer running the GUI needs a minimum ram of 16gbs.
+
+To run the GUI, users should clone our repository, activate the provided environment, and run steamlit run streamlit_app.py. The user should follow their command line instructions to open the GUI on their internet browser. 
+The model does take a long time to load.
+Once the model is loaded you can either select a file that is already been prepared or drop menu or import your own file. The widget will display the predicated range of the image.
 
 ## Current limitations
 The desired model is a regressor, however, due to a lack of data this was not possible. Using simple regression models, our validation error would increase with each epoch which would eventually kill the model. We believe the validation error continued to increase due to the limited number of validation images available, a 20% validation split is only two images. Thus, there are no 1:1 validations available. What we believe to be happening is that images of one input copy number (ie 100 copies) was being validated against a different (1,000 copies) or no image whatsoever. 
