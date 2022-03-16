@@ -56,7 +56,7 @@ Describe results here
 
 ## Application Usage
 There are a few requirements to run the current GUI. These are that the model needs to be downloaded and unzipped into your working directory. The model’s directory title should be “finalcnn”. This file can be shared upon request, due to it’s size 1.1gb we are unable to upload it into our repository. 
-The other requirement is the computer running the GUI needs a minimum ram of 16gbs.
+The other requirement is the computer running the GUI needs a minimum ram of 16gb.
 
 To run the GUI, users should clone our repository, activate the provided environment, and run steamlit run streamlit_app.py. The user should follow their command line instructions to open the GUI on their internet browser. 
 The model does take a long time to load.
