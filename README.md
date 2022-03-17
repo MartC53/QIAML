@@ -40,7 +40,7 @@ For more information please see [Further details in the wiki](https://github.com
 ### Import Images
 Due to their size, all data set images are cropped and pre-processed using the ``auto_crop.py``. This function isolates the green fluorescent channel (the detection channel of our FAM fluorophore) applied an adaptive blurring and contrasting to the images to improve visual representation. The images are then cropped based on contours of the image, and saved as a 2D NumPy array in an .npy file. To access the images, the ``get_data.py`` file reads in the .npy and saves the data arrays as either a NumPy array or a pandas dataframe. The data available is triplicate images of the end point of the RPA reaction. To ensure the train and test splits contain all data in the range of interest (30-10,000 cp) the triplicate data is split into train and test groups. Here the data in AB,BC, or AC represent the train groups while A, B, or C are the test groups for the training sets BC, AC,AB respectively.
 ### Pre CNN image processing 
-To improve model accuracy and run time the images are are sized to 900x900 pixels. Additionally, the image pixel intensities are normalized on a range of [0,1] with a maximum intensity of 256 for the 8-bit camera these images were taken on.
+To improve model accuracy and run time the images are sized to 900x900 pixels. Additionally, the image pixel intensities are normalized on a range of [0,1] with a maximum intensity of 256 for the 8-bit camera these images were taken on.
 ### Model training  
 The model used is a simple sequential model  containing five layers. The first layer is a rescaling of the data to normalize 8-bit pixel intensities on the range of [0,1]. The next layer is an 8 neuron deep 2D convolution layer. 2D convolution layers have been successfully used for image classification in the past [1]. To find the optimal number of neurons, the model was iteratively run with 128, 64, 32, 16, 8, and 4 neurons. Accuracy was defined by correct identification of test data. The model failed to run above 64 neurons and accuracy losses were observed at 32 neurons. The highest accuracy was observed with 8 and 4 neurons. The model is then flattened before being past to two hidden dense layers whose neuron depths were iteratively determined as above. 
 
@@ -50,11 +50,11 @@ The optimizer and activation function hyper parameters used in the layers were c
 2. Takuya Akiba, Shotaro Sano, Toshihiko Yanase, Takeru Ohta,and Masanori Koyama. 2019.
 Optuna: A Next-generation Hyperparameter Optimization Framework. In KDD.
 
-### Inital Input Correlation 
+### Initial Input Correlation 
 Describe results here
 
 ## Application Usage
-There are a few requirements to run the current GUI. These are that the model needs to be downloaded and unzipped into your working directory. The model’s directory title should be “finalcnn”. This file can be downladed [here](https://drive.google.com/drive/folders/1L-Yn5opjNfaOqfTedgdTPQEp0Bcc60Qi?usp=sharing), due to it’s size 1.1gb we are unable to upload it into our repository. The main branch should have the following directory structure:
+There are a few requirements to run the current GUI. These are that the model needs to be downloaded and unzipped into your working directory. The model’s directory title should be “finalcnn”. This file can be downloaded [here](https://drive.google.com/drive/folders/1L-Yn5opjNfaOqfTedgdTPQEp0Bcc60Qi?usp=sharing), due to its size 1.1gb we are unable to upload it into our repository. The main branch should have the following directory structure:
 ```
 .
 ├── Datasets
@@ -70,7 +70,7 @@ Other requirements:
   - 16gb of ram is required to load the image dataframes. 
   - 16gb of ram is required to run the GUI.
 
-To run the GUI, users should clone our repository, activate the provided environment, and run ```steamlit run streamlit_app.py``` from the terminal. The user should follow their command line instructions to open the GUI on their internet browser. 
+To run the GUI, users should clone our repository, activate the provided environment, and run ```streamlit run streamlit_app.py``` from the terminal. The user should follow their command line instructions to open the GUI on their internet browser. 
 The model does take a long time to load.
 Once the model is loaded you can either select a file that is already been prepared or drop menu or import your own file. The widget will display the predicated range of the image.
 
