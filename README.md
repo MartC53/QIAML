@@ -50,9 +50,6 @@ The optimizer and activation function hyper parameters used in the layers were c
 2. Takuya Akiba, Shotaro Sano, Toshihiko Yanase, Takeru Ohta,and Masanori Koyama. 2019.
 Optuna: A Next-generation Hyperparameter Optimization Framework. In KDD.
 
-### Initial Input Correlation 
-Describe results here
-
 ## Application Usage
 There are a few requirements to run the current GUI. These are that the model needs to be downloaded and unzipped into your working directory. The model’s directory title should be “finalcnn”. This file can be downloaded [here](https://drive.google.com/drive/folders/1L-Yn5opjNfaOqfTedgdTPQEp0Bcc60Qi?usp=sharing), due to its size 1.1gb we are unable to upload it into our repository. The main branch should have the following directory structure:
 ```
