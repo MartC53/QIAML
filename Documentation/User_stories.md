@@ -58,19 +58,35 @@ Inputs: Named dataset created in ```import_data```
 Outputs: NumPy arrays or Pandas dataframes preprocessed and ready for the ML model
 Interactions: User calls ```get_data``` function at a script level. Ideally would automatically follow ```import_data``` in a GUI interface.
 
-```ML model```
+```finalcnn/```
 
-What it does: Regression analysis of Image to make a quantification estimate 
-Inputs: Takes preprocessed data from ```get_data```
-Outputs: A trained regression model that has quantification prediction abilities
-Interactions: User interacts at a script level for new assays. For developed assays users could load results from pre-trained models to apply to their data. Unlikely a GUI would have training abilities- user would load pretrained model.
+What it does: Classification of input image data to classify the image to belonging to high, medium, or low initial input copies. The model is pre-trained on data from ```final_cnn.py```
+Inputs: Together with ```model.py``` and ```streamlit_app.py``` takes a jpg image and makes a classification prediction 
+Outputs: Capability to make a classification prediction
 
-```result_overview```
+```final_cnn.py```
 
-What it does: shows user results- sanity check by showing user image of amplification pad along with estimate number of copies. May overlay previously developed region spot analysis code for tertiary evaluation.
+What it does: applies a simple five-layer sequential convolutional neural network containing 2D convolution layers, flattening layers, and hidden neuron layers to input data. This script defines the model, complies the model, fits the model, and saves the model.
+Inputs: Image data is read in with ```Dataset_from_directory``` and converted into a tensor.
+Outputs: model summary as a .txt file and a saved model in a new directory named after the defined group in line 5.
+
+```environment.yml```
+
+What it is: This is the conda environment used to produce the TensorFlow model and run the streamlit GUI.
 Inputs: none
-Outputs: image of amplification pad and quantification estimate.
-Interactions: User interacts with this as a pop-up window or GUI on website.
+Outputs: Conda environment capable of using the scripts in the repo.
+
+```model.py```
+
+What it is: Defines functions needed for the streamlit GUI.
+Inputs: Directory folder for the saved model and an image to predict on.
+Outputs: A loaded model for GUI and an image rescaled appropriately to be fed into the model.
+
+```streamlit_app.py```
+
+What it is: source code for the streamlit GUI
+Inputs: The inputs are the functions defined in ```model.py```.
+Outputs: GUI where the user can upload an image for classification prediction or select an image from the test set to see the model output.
 
    
 ## Process flow
