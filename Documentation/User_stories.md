@@ -29,64 +29,74 @@ Provides sample and then receives results in further versions will be the only u
 - reads out results 
 
 # USE CASES
-## User inputs:
-- Select operation create new quantification / Upload New standard / Change assay (disease)
-- Feeding Images
-- Post quantification actions: save to device, send to doctor, call healthcare.
-- Trends in history
+1. User uploads image to GUI for classification and recieves initial copy classification with a visual display
+2. User can select a preloaded image for comparision in a visual display.
 
-## GUI- Interaction with 1. Website 2. App (Future) 
-- Progress bar
-   - Text Return for progress 
-- Return Number / Compared to standard
-   - Graph of counts, visual display of counts on standard curve
-   - Output to show accuracy of each image with error bar
+## User inputs:
+- Feeding Images
+- *Future inputs*
+  - Select operation create new quantification / Upload New standard / Change assay (disease)
+  - Post quantification actions: save to device, send to doctor, call healthcare.
+  - Trends in history
+
+## GUI- Interaction
+- Return classification
+- *Future interactions* 
+  - Return Number / Compared to standard
+     - Graph of counts, visual display of counts on standard curve
+     - Output to show accuracy of each image with error bar
+   - Kivy app integration 
    
 ## Components 
 
 ```import_data```
 
-What it does: First step to allow users to load their data. Takes in a directory of image location. Then applies ```autocrop``` functions that crop the images down to the membrane. functions also blur images and apply a contrasting algorithm to aid in visualization.
-Inputs: User acquired RGB jpg images.
-Outputs: .npy files containing the image data flattened to grayscale and cropped to the membrane.
+What it does: First step to allow users to load their data. Takes in a directory of image location. Then applies ```autocrop``` functions that crop the images down to the membrane. functions also blur images and apply a contrasting algorithm to aid in visualization.<br />
+Inputs: User acquired RGB jpg images.<br />
+Outputs: .npy files containing the image data flattened to grayscale and cropped to the membrane.<br />
 Interactions: User calls ```import_data``` function at a script level. Ideally users would upload images to website, and this would be the first part of the workflow.
 
 ```get_data```
 
-What it does: Allows for simple loading of datasets created by the ```import_data``` functions.
-Inputs: Named dataset created in ```import_data```
-Outputs: NumPy arrays or Pandas dataframes preprocessed and ready for the ML model
+What it does: Allows for simple loading of datasets created by the ```import_data``` functions.<br />
+Inputs: Named dataset created in ```import_data```<br />
+Outputs: NumPy arrays or Pandas dataframes preprocessed and ready for the ML model<br />
 Interactions: User calls ```get_data``` function at a script level. Ideally would automatically follow ```import_data``` in a GUI interface.
 
 ```finalcnn/```
 
-What it does: Classification of input image data to classify the image to belonging to high, medium, or low initial input copies. The model is pre-trained on data from ```final_cnn.py```
-Inputs: Together with ```model.py``` and ```streamlit_app.py``` takes a jpg image and makes a classification prediction 
-Outputs: Capability to make a classification prediction
+What it does: Classification of input image data to classify the image to belonging to high, medium, or low initial input copies. The model is pre-trained on data from ```final_cnn.py```.<br />
+Inputs: Together with ```model.py``` and ```streamlit_app.py``` takes a jpg image and makes a classification prediction.<br /> 
+Outputs: Capability to make a classification prediction.<br />
+Interactions: *Future use case* User would select their own data to produce a new model. 
 
 ```final_cnn.py```
 
-What it does: applies a simple five-layer sequential convolutional neural network containing 2D convolution layers, flattening layers, and hidden neuron layers to input data. This script defines the model, complies the model, fits the model, and saves the model.
-Inputs: Image data is read in with ```Dataset_from_directory``` and converted into a tensor.
-Outputs: model summary as a .txt file and a saved model in a new directory named after the defined group in line 5.
+What it does: applies a simple five-layer sequential convolutional neural network containing 2D convolution layers, flattening layers, and hidden neuron layers to input data. This script defines the model, complies the model, fits the model, and saves the model.<br />
+Inputs: Image data is read in with ```Dataset_from_directory``` and converted into a tensor.<br />
+Outputs: model summary as a .txt file and a saved model in a new directory named after the defined group in line 5.<br />
+Interactions: User downloads model and places in parent directory of repo to utllize website.
 
 ```environment.yml```
 
-What it is: This is the conda environment used to produce the TensorFlow model and run the streamlit GUI.
-Inputs: none
-Outputs: Conda environment capable of using the scripts in the repo.
+What it is: This is the conda environment used to produce the TensorFlow model and run the streamlit GUI.<br />
+Inputs: none. <br />
+Outputs: Conda environment capable of using the scripts in the repo.<br />
+Interactions: User creates working environment with ```conda env create -f environment.yml```
 
 ```model.py```
 
-What it is: Defines functions needed for the streamlit GUI.
-Inputs: Directory folder for the saved model and an image to predict on.
-Outputs: A loaded model for GUI and an image rescaled appropriately to be fed into the model.
+What it is: Defines functions needed for the streamlit GUI.<br />
+Inputs: Directory folder for the saved model and an image to predict on.<br />
+Outputs: A loaded model for GUI and an image rescaled appropriately to be fed into the model.<br />
+Interactions: Current, none. * Future* User Changes model name as necessary to load in custom model.
 
 ```streamlit_app.py```
 
-What it is: source code for the streamlit GUI
-Inputs: The inputs are the functions defined in ```model.py```.
-Outputs: GUI where the user can upload an image for classification prediction or select an image from the test set to see the model output.
+What it is: Source code for the streamlit GUI.<br />
+Inputs: The inputs are the functions defined in ```model.py```.<br />
+Outputs: GUI where the user can upload an image for classification prediction or select an image from the test set to see the model output.<br />
+Interaction: None, user interacts with GUI after running ``` streamlit run streamlit_app.py```
 
    
 ## Process flow
