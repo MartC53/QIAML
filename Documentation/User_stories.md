@@ -29,8 +29,8 @@ Provides sample and then receives results in further versions will be the only u
 - reads out results 
 
 # USE CASES
-1. User uploads image to GUI for classification and recieves initial copy classification with a visual display
-2. User can select a preloaded image for comparision in a visual display.
+1. User uploads image to GUI for classification and receives initial copy classification with a visual display
+2. User can select a preloaded image for comparison in a visual display.
 
 ## User inputs:
 - Feeding Images
@@ -75,7 +75,7 @@ Interactions: *Future use case* User would select their own data to produce a ne
 What it does: applies a simple five-layer sequential convolutional neural network containing 2D convolution layers, flattening layers, and hidden neuron layers to input data. This script defines the model, complies the model, fits the model, and saves the model.<br />
 Inputs: Image data is read in with ```Dataset_from_directory``` and converted into a tensor.<br />
 Outputs: model summary as a .txt file and a saved model in a new directory named after the defined group in line 5.<br />
-Interactions: User downloads model and places in parent directory of repo to utllize website.
+Interactions: User downloads model and places in parent directory of repo to utilize website.
 
 ```environment.yml```
 
