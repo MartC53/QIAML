@@ -99,7 +99,7 @@ Outputs: GUI where the user can upload an image for classification prediction or
 Interaction: None, user interacts with GUI after running ``` streamlit run streamlit_app.py```
 
    
-## Process flow
+## Idealized Future Process flow
 1. Images collected on smartphone
     - Automated app based on android APK exists allowing for complete camera control (focal length, iso, flash time, exposure time, time between frames)
       - Built on python for android with kivy, considerations may need to be realized to allow integration with python for android (no scikit learn, yes open cv)
@@ -113,6 +113,6 @@ Interaction: None, user interacts with GUI after running ``` streamlit run strea
     - Due to small dataset image augmentation may be needed
     - Microscope images could be used as supplement, check for bias
       - Microscope images are .tiff and much larger
-4. Display results as numerical answer (# copies) from y_predict
+4. Display results as numerical answer (# copies) from regressor prediction 
 5. Display results on a standard curve that is annotated with clinical decision-making matrix
-6. Display results with overlayed spot counter as sanity check.
+6. Display results with overlayed with previously developed spot counter as sanity check.
