@@ -72,7 +72,7 @@ Other requirements:
 
 To run the GUI, users should clone our repository, activate the provided environment, and run ```streamlit run streamlit_app.py``` from the terminal. The user should follow their command line instructions to open the GUI on their internet browser. 
 The model does take a long time to load.
-Once the model is loaded you can either select a file that is already been prepared or drop menu or import your own file. The widget will display the predicated range of the image.
+Once the model is loaded you can either select a file that has already been prepared by using the drop menu or import your own file. The widget will display the predicated range of the image.
 
 ## Current limitations
 The desired model is a regressor, however, due to a lack of data this was not possible. Using simple regression models, our validation error would increase with each epoch which would eventually kill the model. We believe the validation error continued to increase due to the limited number of validation images available, a 20% validation split is only two images. Thus, there are no 1:1 validations available. What we believe to be happening is that images of one input copy number (ie 100 copies) was being validated against a different (1,000 copies) or no image whatsoever. 
