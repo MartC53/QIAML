@@ -81,6 +81,15 @@ To remedy this, we split the data into three classifications: High input copies 
 
 Another issue with the current limited image library is that the testing and validation images are of the same initial input copy number as those of the test set, Meaning, the training, validation, and testing data all contain images of the same dilution factor. In the future, this model can be improved by utilizing validation and testing images of a different dilution factor as to thoroughly test the model on input copies dilutions not previously seen.
 
+### Confusion Matrix
+|    |      Predicted Low      |  Predicted Medium | Predicted High |
+|----------|:-------------:|------:|------:|
+| True Low |  2 | 0 | 0 |
+| True Medium |   2   |  0 | 0 |
+| True High | 3 |  0  | 0 |
+
+The current published model always predicts the low classification. During the process of selecting a model, we noticed models created with the same script would always classify a single (different) class. We believe this occurs due to the validation split. When defining the split, we did not provide a directory containing all the images in the desired dilution range, this combined with the lack of a constant seed, results in a random assignment of 14 images in which multiple images from the same class are used for the validation split. This can be remedied by manually making a directory of images to use for validation.
+
 ## Future plans
 The model is not currently available to be installed via pip of conda due to a few limiting factors. The first limiting factor is that size of the datasets. The data sets and saved models are multiple gigabytes in size. These large sizes make storing this data on GitHub impractical. Future work in this space will require the data to be uploaded to a data sharing platform like Zenodo. Second, this work and work around this project area are under active development and should not be utilized for the diagnosis of disease and should not be used in the attempt to make a diagnosis. In the future, a setup.py file will be added once more training data is available, the datasets and model will be available for download and local training if desired or for modification of other assay types.
 
