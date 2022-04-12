@@ -5,12 +5,15 @@ apply_contrast.
 
 Authors: Coleman Martin and Zoe Kaputa
 
+Modified on Sun Mar 13,
+assertions wrote for tests
+Xuetao.
 """
 import cv2 as cv2
 import numpy as np
 
 
-def crop(path):
+def crop(path=None):
     """
     Returns a cropped version of the image with the path path.
 
@@ -21,7 +24,14 @@ def crop(path):
     - cropped: image which is the cropped version of the image with the path
                path
     """
+    assert type(path) == str, 'The path should be in string format!'
+    
     img = cv2.imread(path, cv2.IMREAD_COLOR)
+    
+    assert np.sum(img) != None, 'the path is not right or there is no such a file. Check path or file name.'
+    assert img.shape[0:3] != None and img.ndim == 3, 'The image is not in right format. Image should have three diamensions'
+    
+    assert 2000> img.shape[0] >200 and 2000> img.shape[1] >200, 'The image has unusual size. Please check the image imported.'
 
     # leave only green color
     img[:, :, 0] = 0
