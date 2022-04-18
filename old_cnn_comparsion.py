@@ -54,3 +54,14 @@ def final_cnn_loop(group, data_dir, predict_dir):
   sys.stdout.close()
   os.mkdir('%s' % group)
   model.save('%s' % group, save_traces=False)
+
+# group = 'Cut'
+# data_dir = './cut_to_4/3_split_test'
+# predict_dir = './cut_to_4/3_split'
+
+# final_cnn_loop(group, data_dir, predict_dir)
+
+group = 'Cutflip'
+data_dir ='./cut_to_4_flip/3_split'
+predict_dir = './cut_to_4_flip/3_split_test'
+final_cnn_loop(group, data_dir, predict_dir)
