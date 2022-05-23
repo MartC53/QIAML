@@ -153,6 +153,6 @@ class Test_modeltest(unittest.TestCase):
             return regr
         
         
-        assert len(modeltest(model,testpath[0])) =! 1, 'The path model making and test processes are incorrect'
+        assert len(modeltest(model,testpath[0])) =! 1, 'The path model making and test process are incorrect'
         
         
