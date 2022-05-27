@@ -1,8 +1,8 @@
 import cv2
 import numpy as np
 import unittest
-#from qiaml import *
-#import qiaml
+from qiaml import *
+import qiaml
 from qiaml.autocrop import crop
 from qiaml.get_data import get_data_array
 
