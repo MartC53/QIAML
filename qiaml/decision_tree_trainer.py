@@ -23,10 +23,6 @@ import matplotlib
 import pickle
 import csv
 
-matplotlib.rcParams.update({'font.size': 18})
-%load_ext autoreload
-%autoreload 2
-
 def get_models():
     
     """
@@ -143,7 +139,7 @@ def get_models():
 
     with open('model.pkl','wb') as f:
         pickle.dump(models,f)
-    return 'Done!'
+    return models,xpara,ypara,all_para,keys_train
 
 def tif_to_mat(tiffpath):
     """
