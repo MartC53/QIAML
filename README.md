@@ -13,9 +13,9 @@ The goal of this project is to produce a model that accurately detects quantifie
     - [x] Save and load model 
   - [x] Make predictions based on input pictures
     - [x] Visualize predictions and image on GUI
-- [ ] Regressor model
-  -  [ ] Investigate One-shot/few-shot models 
-  -  [ ] Use time resolved data 
+- [x] Regressor model
+  -  [x] Investigate One-shot/few-shot models 
+  -  [x] Use time resolved data 
 
 ## Motivation
 ### Abstract
